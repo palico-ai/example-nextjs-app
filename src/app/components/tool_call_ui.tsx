@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, TextField, Typography } from "@mui/material";
 import { ToolCall } from "@palico-ai/react";
 import { useState } from "react";

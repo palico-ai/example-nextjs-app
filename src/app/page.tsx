@@ -1,11 +1,6 @@
 "use client";
 
-import { Message, MessageSender, useChat } from "@palico-ai/react";
-import {
-  AgentChatListItem,
-  UserChatListItem,
-} from "./components/chat_list_item";
-import { useState } from "react";
+import { useChat } from "@palico-ai/react";
 import { Box, Stack } from "@mui/material";
 import { ChatInput } from "./components/chat_input";
 import MessageList from "./components/message_list";
@@ -16,17 +11,6 @@ export default function Chat() {
       apiURL: "/api/palico",
       agentName: "auto_agent",
     });
-
-  const [input, setInput] = useState("");
-
-  const handleSendMessage = async () => {
-    if (input.length > 0) {
-      await sendMessage({
-        userMessage: input,
-      });
-      setInput("");
-    }
-  };
 
   const hasPendingToolCalls = pendingToolCalls && pendingToolCalls.length > 0;
 
