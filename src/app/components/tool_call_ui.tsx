@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { ToolCall } from "@palico-ai/react";
 import { useState } from "react";
 
@@ -44,7 +44,10 @@ const AskForConfirmation: React.FC<ToolCallUIProps> = ({
           gap: 2,
         }}
       >
-        <button
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
           onClick={() =>
             sendResult({
               result: "Yes",
@@ -52,8 +55,11 @@ const AskForConfirmation: React.FC<ToolCallUIProps> = ({
           }
         >
           Yes
-        </button>
-        <button
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          color="error"
           onClick={() =>
             sendResult({
               result: "No",
@@ -61,7 +67,7 @@ const AskForConfirmation: React.FC<ToolCallUIProps> = ({
           }
         >
           No
-        </button>
+        </Button>
       </Box>
     </div>
   );
@@ -83,6 +89,7 @@ const GetLocation: React.FC<ToolCallUIProps> = ({ toolCall, sendResult }) => {
         type="text"
         variant="standard"
         fullWidth
+        autoFocus
         autoComplete="off"
         value={location || ""}
         onChange={(e) => {
